@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace CRUDelicious.Models
 {
@@ -30,5 +31,8 @@ namespace CRUDelicious.Models
         [MaxLength(255)]
         [Display(Name = "Description")]
         public string Description { get; set; }
+
+        public DateTime CreatedAt {get;set;}
+        public DateTime UpdatedAt {get;set;}
     }
 }
