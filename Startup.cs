@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
+//Register Context Class as a service
+using CRUDelicious.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace CRUDelicious
 {
     public class Startup
@@ -15,6 +19,12 @@ namespace CRUDelicious
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //With our Context class created we need to add it as a service so that we can use dependency injection with our controllers.  
+            string mySqlConnection = "server=localhost;userid=root;password=root;port=3306;database=crudelicious;SslMode=None";
+
+            //inject the context we made
+            services.AddDbContext<CruddyContext>(options => options.UseMySql(mySqlConnection));
+
             services.AddMvc();
         }
 
