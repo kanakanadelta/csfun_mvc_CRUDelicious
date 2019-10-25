@@ -35,17 +35,17 @@ namespace CRUDelicious
             //////////////////////////////
             //   OLD DB CONNECTION    //
             //With our Context class created we need to add it as a service so that we can use dependency injection with our controllers.  
-            // string mySqlConnection = "server=localhost;userid=<<<user>>>;password=<<<pw>>>;port=<<<portnum>>>;database=<<<<dbname>>>>;SslMode=None";
+            string mySqlConnection = "server=localhost;userid=root;password=root;port=3306;database=crudelicious;SslMode=None";
 
             //inject the context we made
-            // services.AddDbContext<CruddyContext>(options => options.UseMySql(mySqlConnection));
+            services.AddDbContext<CruddyContext>(options => options.UseMySql(mySqlConnection));
 
             // END - OLD DB CONNECTION//
             ///////////////////////////
 
             // Now we may use the connection string itself, bound to Configuration, to pass the required connection
-            // credentials to MySQL
-            services.AddDbContext<CruddyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
+            // // credentials to MySQL
+            // services.AddDbContext<CruddyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
 
             //other services
             services.AddMvc();

@@ -1,0 +1,56 @@
+@using CRUDelicious.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="~/css/style.css">
+  <title>A Web Page</title>
+</head>
+<body>
+  <h1>Add a new Dish!</h1>
+  <div>
+    <a asp-controller="Home" asp-action="Index">Home</a>
+  </div>
+  <div>
+    @model Dish
+    <form action="/@Model.DishId/update" method="PUT" >
+      <div>
+        <input type="hidden" name="dishId" asp-for="DishId">
+        <!-- Chef Name -->
+        <label asp-for="ChefName"></label>
+        <input asp-for="ChefName" name="chefName" type="text">
+        <p style="color:red;" asp-validation-for="ChefName"></p>
+        <!-- Dish Name -->
+        <label asp-for="DishName"></label>
+        <input asp-for="DishName" name="dishName" type="text">
+        <p style="color:red;" asp-validation-for="DishName"></p>
+        <!-- Calories -->
+        <label asp-for="Calories"></label>
+        <input asp-for="Calories" name="calories" type="number">
+        <p style="color:red;" asp-validation-for="Calories"></p>
+      </div>
+      <div>
+        <!-- Tastiness -->
+        <label asp-for="Tastiness"></label>
+        <select asp-for="Tastiness" name="tastiness" type="number">
+          @for(var i = 1; i <= 10; i++)
+          {
+            <option value='@i'>@i</option>
+          }
+        </select>
+        <p style="color:red;" asp-validation-for="Tastiness"></p>
+      </div>
+      <div>
+        <!-- Description -->
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" name="description" id="" cols="20" rows="5"></textarea>
+        <!-- Submit -->
+        <input type="submit" value="Add Dish">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

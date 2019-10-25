@@ -1,0 +1,36 @@
+* {
+  font-family: comic sans ms;
+}
+
+#dish-form {
+  display: flex;
+  justify-content: space-around;
+}
+
+#dish-form div {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+#index-main
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#index-left
+{
+  width: 50%;
+}
+
+#index-right
+{
+  width: 20%;
+}
+
+#index-left p {
+  padding: 20px 0;
+  border-bottom: 1.5px solid #000;
+}

@@ -21,8 +21,81 @@ namespace CRUDelicious.Controllers
         public IActionResult Index()
         {
             List<Dish> AllDishes = dbContext.Dishes.ToList();
+            ViewBag.Dishes = AllDishes;
             return View();
         }
-    
+
+        [HttpGet("new")]
+        public IActionResult New(Dish dish)
+        {
+            return View(dish);
+        }
+
+        [HttpPost("create")]
+        public IActionResult Create(Dish dish)
+        {
+            if(ModelState.IsValid)
+            {
+                dbContext.Add(dish);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("New");
+            }
+        }
+
+        [HttpGet("{dishId}")]
+        public IActionResult Show(int dishId)
+        {
+            Dish dishRow = dbContext.Dishes.FirstOrDefault(dish => dish.DishId == dishId);
+
+            return View(dishRow);
+        }
+
+        [HttpGet("{dishId}/edit")]
+        public IActionResult Edit(int dishId)
+        {
+            Dish dishRow = dbContext.Dishes.FirstOrDefault(dish => dish.DishId == dishId);
+
+            return View(dishRow);
+        }
+
+        [HttpGet("{dishId}/update")]
+        public IActionResult UpdateDish(
+            int dishId, 
+            string chefName,
+            string dishName,
+            int calories,
+            int tastiness,
+            string description
+            )
+        {
+            Dish dishRow = dbContext.Dishes.FirstOrDefault(dish => dish.DishId == dishId);
+
+            dishRow.ChefName = chefName;
+            dishRow.DishName = dishName;
+            dishRow.Calories = calories;
+            dishRow.Tastiness = tastiness;
+            dishRow.Description = description;
+            dishRow.UpdatedAt = System.DateTime.Now;
+
+            dbContext.SaveChanges();
+            return RedirectToAction("Show", new{id=dishRow.DishId});
+
+        }
+
+        [HttpGet("{dishId}/delete")]
+        public IActionResult DeleteDish(int dishId)
+        {
+            Dish dishRow = dbContext.Dishes.FirstOrDefault(dish => dish.DishId == dishId);
+
+            dbContext.Dishes.Remove(dishRow);
+
+            dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

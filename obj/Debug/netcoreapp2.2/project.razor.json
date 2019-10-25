@@ -2961,6 +2961,16 @@
   "RootNamespace": "CRUDelicious",
   "Documents": [
     {
+      "FilePath": "Views/Home/Edit.cshtml",
+      "TargetPath": "Views/Home/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Home/New.cshtml",
+      "TargetPath": "Views/Home/New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Home/Index.cshtml",
       "TargetPath": "Views/Home/Index.cshtml",
       "FileKind": "mvc"
@@ -2968,6 +2978,11 @@
     {
       "FilePath": "Views/_ViewImports.cshtml",
       "TargetPath": "Views/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Home/Show.cshtml",
+      "TargetPath": "Views/Home/Show.cshtml",
       "FileKind": "mvc"
     }
   ],

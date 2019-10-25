@@ -22,3 +22,6 @@
 /Users/rtongson/Documents/csharp/mvcfun/CRUDelicious/obj/Debug/netcoreapp2.2/CRUDelicious.pdb
 /Users/rtongson/Documents/csharp/mvcfun/CRUDelicious/obj/Debug/netcoreapp2.2/CRUDelicious.csproj.CopyComplete
 /Users/rtongson/Documents/csharp/mvcfun/CRUDelicious/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs
+/Users/rtongson/Documents/csharp/mvcfun/CRUDelicious/obj/Debug/netcoreapp2.2/Razor/Views/Home/New.g.cshtml.cs
+/Users/rtongson/Documents/csharp/mvcfun/CRUDelicious/obj/Debug/netcoreapp2.2/Razor/Views/Home/Show.g.cshtml.cs
+/Users/rtongson/Documents/csharp/mvcfun/CRUDelicious/obj/Debug/netcoreapp2.2/Razor/Views/Home/Edit.g.cshtml.cs

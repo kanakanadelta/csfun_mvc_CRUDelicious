@@ -1,9 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="~/css/style.css">
   <title>A Web Page</title>
 </head>
 <body>
@@ -14,11 +17,17 @@
         <p>Check out some recent dishes!</p>
         <div>
           <!-- Dynamically render index of dishes -->
+          @foreach(var dish in ViewBag.Dishes)
+          {
+            <div>
+              <a href="@dish.DishId">@dish.DishName</a> by @dish.ChefName
+            </div>
+          }
         </div>
       </div>
-      <div>
+      <div id="index-right">
         <!-- Redirect to /new -->
-        <a href="">Add a dish</a>
+        <a asp-controller="Home" asp-action="New">Add a dish</a>
       </div>
     </div>
   </div>
