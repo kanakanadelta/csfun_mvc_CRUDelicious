@@ -62,23 +62,42 @@ namespace CRUDelicious.Controllers
             return View(dishRow);
         }
 
+        // [HttpGet("{dishId}/update")]
+        // public IActionResult UpdateDish(
+        //     int dishId, 
+        //     string chefName,
+        //     string dishName,
+        //     int calories,
+        //     int tastiness,
+        //     string description
+        //     )
+        // {
+        //     Dish dishRow = dbContext.Dishes.FirstOrDefault(dish => dish.DishId == dishId);
+
+        //     dishRow.ChefName = chefName;
+        //     dishRow.DishName = dishName;
+        //     dishRow.Calories = calories;
+        //     dishRow.Tastiness = tastiness;
+        //     dishRow.Description = description;
+        //     dishRow.UpdatedAt = System.DateTime.Now;
+
+        //     dbContext.SaveChanges();
+        //     return RedirectToAction("Show", new{id=dishRow.DishId});
+
+        // }
+
         [HttpGet("{dishId}/update")]
-        public IActionResult UpdateDish(
-            int dishId, 
-            string chefName,
-            string dishName,
-            int calories,
-            int tastiness,
-            string description
-            )
+        public IActionResult UpdateDish(Dish updatedDish, int dishId)
         {
             Dish dishRow = dbContext.Dishes.FirstOrDefault(dish => dish.DishId == dishId);
 
-            dishRow.ChefName = chefName;
-            dishRow.DishName = dishName;
-            dishRow.Calories = calories;
-            dishRow.Tastiness = tastiness;
-            dishRow.Description = description;
+            dishRow.ChefName = updatedDish.ChefName;
+            dishRow.DishName = updatedDish.DishName;
+            dishRow.Calories = updatedDish.Calories;
+            dishRow.Tastiness = updatedDish.Tastiness;
+            dishRow.Description = updatedDish.Description;
+            // dishRow = updatedDish;
+            // dishRow.DishId = dishId;
             dishRow.UpdatedAt = System.DateTime.Now;
 
             dbContext.SaveChanges();

@@ -16,7 +16,7 @@
   </div>
   <div>
     @model Dish
-    <form action="/@Model.DishId/update" method="PUT" >
+    <form action="/@Model.DishId/update" >
       <div>
         <input type="hidden" name="dishId" asp-for="DishId">
         <!-- Chef Name -->
@@ -48,7 +48,7 @@
         <label asp-for="Description"></label>
         <textarea asp-for="Description" name="description" id="" cols="20" rows="5"></textarea>
         <!-- Submit -->
-        <input type="submit" value="Add Dish">
+        <input type="submit" value="Edit Dish">
       </div>
     </form>
   </div>
